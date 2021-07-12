@@ -64,6 +64,9 @@
                         </property>
                     </properties>
                     <testFailureIgnore>true</testFailureIgnore>
+                    <systemPropertyVariables>
+                        <env></env>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>
