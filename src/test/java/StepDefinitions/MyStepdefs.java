@@ -1,5 +1,6 @@
 package StepDefinitions;
 
+import Managers.DriverManager;
 import Managers.FileReaderManager;
 import Managers.PageObjectManager;
 import PageObjects.HomePage;
@@ -7,13 +8,8 @@ import PageObjects.LoginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-
-import java.util.concurrent.TimeUnit;
 
 public class MyStepdefs {
 
@@ -21,17 +17,13 @@ public class MyStepdefs {
     HomePage homePage;
     LoginPage loginPage;
     PageObjectManager pageObjectManager;
+    DriverManager driverManager;
 
     @Given("Open the browser with bhinneka home page")
     public void openTheBrowserWithBhinnekaHomePage() {
 
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless", "--window-size=1644,868");
-        webDriver = new ChromeDriver(options);
-
-        webDriver.manage().timeouts().implicitlyWait(FileReaderManager.getInstance().getConfigFileReader().getTime(), TimeUnit.SECONDS);
-        webDriver.manage().timeouts().setScriptTimeout(FileReaderManager.getInstance().getConfigFileReader().getTime(), TimeUnit.SECONDS);
+        driverManager = new DriverManager();
+        webDriver = driverManager.getDriver();
 
         pageObjectManager = new PageObjectManager(webDriver);
         homePage = pageObjectManager.getHomePage();
@@ -42,7 +34,7 @@ public class MyStepdefs {
     @Then("Quit the session")
     public void quitTheSession() {
 
-        webDriver.quit();
+        driverManager.closeDriver();
     }
 
     private boolean loginPageIsDisplayed() {
