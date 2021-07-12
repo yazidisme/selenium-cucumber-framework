@@ -9,11 +9,13 @@ import java.util.Properties;
 public class ConfigFileReader {
 
     private Properties properties;
-    private final String propertyFilePath = "config/configuration.properties";
 
     public ConfigFileReader() {
         BufferedReader bufferedReader;
         FileReader fileReader;
+        String propertyFilePath = "config/%s-configuration.properties";
+        String configFile = System.getProperty("env");
+        propertyFilePath = String.format(propertyFilePath, configFile);
         try {
             fileReader = new FileReader(propertyFilePath);
             bufferedReader = new BufferedReader(fileReader);
@@ -26,7 +28,7 @@ public class ConfigFileReader {
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            throw new RuntimeException("configuration.properties not found at " + propertyFilePath);
+            throw new RuntimeException("configuration file not found at " + propertyFilePath);
         }
     }
 
