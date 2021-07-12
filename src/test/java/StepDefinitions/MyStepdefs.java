@@ -1,5 +1,6 @@
 package StepDefinitions;
 
+import DataProviders.ConfigFileReader;
 import Managers.PageObjectManager;
 import PageObjects.HomePage;
 import PageObjects.LoginPage;
@@ -20,6 +21,7 @@ public class MyStepdefs {
     HomePage homePage;
     LoginPage loginPage;
     PageObjectManager pageObjectManager;
+    ConfigFileReader configFileReader = new ConfigFileReader();
 
     @Given("Open the browser with bhinneka home page")
     public void openTheBrowserWithBhinnekaHomePage() {
@@ -29,13 +31,13 @@ public class MyStepdefs {
         options.addArguments("--window-size=1644,868");
         webDriver = new ChromeDriver(options);
 
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        webDriver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(configFileReader.getTime(), TimeUnit.SECONDS);
+        webDriver.manage().timeouts().setScriptTimeout(configFileReader.getTime(), TimeUnit.SECONDS);
 
         pageObjectManager = new PageObjectManager(webDriver);
         homePage = pageObjectManager.getHomePage();
 
-        webDriver.get("https://www.bhinneka.com/");
+        webDriver.get(configFileReader.getUrl());
     }
 
     @Then("Quit the session")
