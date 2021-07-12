@@ -1,5 +1,6 @@
 package StepDefinitions;
 
+import Managers.PageObjectManager;
 import PageObjects.HomePage;
 import PageObjects.LoginPage;
 import io.cucumber.java.en.Given;
@@ -18,6 +19,7 @@ public class MyStepdefs {
     WebDriver webDriver;
     HomePage homePage;
     LoginPage loginPage;
+    PageObjectManager pageObjectManager;
 
     @Given("Open the browser with bhinneka home page")
     public void openTheBrowserWithBhinnekaHomePage() {
@@ -30,7 +32,10 @@ public class MyStepdefs {
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         webDriver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
 
-        webDriver.get("https://staging-gws-cf.bhinneka.com/");
+        pageObjectManager = new PageObjectManager(webDriver);
+        homePage = pageObjectManager.getHomePage();
+
+        webDriver.get("https://www.bhinneka.com/");
     }
 
     @Then("Quit the session")
@@ -41,7 +46,8 @@ public class MyStepdefs {
 
     private boolean loginPageIsDisplayed() {
 
-        loginPage = new LoginPage(webDriver);
+        loginPage = pageObjectManager.getLoginPage();
+
         Assert.assertTrue(loginPage.emailLoginPageIsDisplayed());
         String actualLoginHeaderTitle = loginPage.getLoginHeaderTitle();
         Assert.assertEquals("Silakan masuk ke akun Anda", actualLoginHeaderTitle);
@@ -53,7 +59,6 @@ public class MyStepdefs {
     @Given("Login form in login page")
     public void goToLoginPage() {
 
-        homePage = new HomePage(webDriver);
         Assert.assertTrue(homePage.defaultHomePageIsDisplayed());
         homePage.clickLoginButton();
         Assert.assertTrue(loginPageIsDisplayed());
@@ -62,7 +67,6 @@ public class MyStepdefs {
     @Given("Home page without authorizations")
     public void homePageWithoutAuthorizations() {
 
-        homePage = new HomePage(webDriver);
         Assert.assertTrue(homePage.defaultHomePageIsDisplayed());
     }
 
