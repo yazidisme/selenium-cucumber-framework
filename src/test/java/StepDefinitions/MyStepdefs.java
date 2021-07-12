@@ -3,6 +3,7 @@ package StepDefinitions;
 import Managers.PageObjectManager;
 import PageObjects.HomePage;
 import PageObjects.LoginPage;
+import Utilities.PropertiesReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,22 +21,23 @@ public class MyStepdefs {
     HomePage homePage;
     LoginPage loginPage;
     PageObjectManager pageObjectManager;
+    PropertiesReader propertiesReader = new PropertiesReader();
 
     @Given("Open the browser with bhinneka home page")
-    public void openTheBrowserWithBhinnekaHomePage() {
+    public void openTheBrowserWithBhinnekaHomePage() throws Exception {
 
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--window-size=1644,868");
         webDriver = new ChromeDriver(options);
 
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        webDriver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(propertiesReader.getTimeout(), TimeUnit.SECONDS);
+        webDriver.manage().timeouts().setScriptTimeout(propertiesReader.getTimeout(), TimeUnit.SECONDS);
 
         pageObjectManager = new PageObjectManager(webDriver);
         homePage = pageObjectManager.getHomePage();
 
-        webDriver.get("https://www.bhinneka.com/");
+        webDriver.get(PropertiesReader.getValue("url"));
     }
 
     @Then("Quit the session")
