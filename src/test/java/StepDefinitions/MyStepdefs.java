@@ -1,6 +1,6 @@
 package StepDefinitions;
 
-import DataProviders.ConfigFileReader;
+import Managers.FileReaderManager;
 import Managers.PageObjectManager;
 import PageObjects.HomePage;
 import PageObjects.LoginPage;
@@ -21,23 +21,22 @@ public class MyStepdefs {
     HomePage homePage;
     LoginPage loginPage;
     PageObjectManager pageObjectManager;
-    ConfigFileReader configFileReader = new ConfigFileReader();
 
     @Given("Open the browser with bhinneka home page")
     public void openTheBrowserWithBhinnekaHomePage() {
 
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--window-size=1644,868");
+        options.addArguments("--headless", "--window-size=1644,868");
         webDriver = new ChromeDriver(options);
 
-        webDriver.manage().timeouts().implicitlyWait(configFileReader.getTime(), TimeUnit.SECONDS);
-        webDriver.manage().timeouts().setScriptTimeout(configFileReader.getTime(), TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(FileReaderManager.getInstance().getConfigFileReader().getTime(), TimeUnit.SECONDS);
+        webDriver.manage().timeouts().setScriptTimeout(FileReaderManager.getInstance().getConfigFileReader().getTime(), TimeUnit.SECONDS);
 
         pageObjectManager = new PageObjectManager(webDriver);
         homePage = pageObjectManager.getHomePage();
 
-        webDriver.get(configFileReader.getUrl());
+        webDriver.get(FileReaderManager.getInstance().getConfigFileReader().getUrl());
     }
 
     @Then("Quit the session")
