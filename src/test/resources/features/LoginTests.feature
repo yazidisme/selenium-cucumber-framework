@@ -1,7 +1,7 @@
 Feature: Login tests
   As Customer B2B2B, I can login to Bhinneka.com
 
-  @PositiveCase @Staging @Development @testing
+  @PositiveCase @Staging @Development @test
   Scenario: Login to Bhinneka.com using valid account that registered in personal and corporate account type
     Given Open the browser with bhinneka home page
     And Login form in login page
