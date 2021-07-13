@@ -23,7 +23,9 @@ public class HomePage {
     @FindBy(xpath = "//img[contains(@src,'bhinneka-logo')]//parent::a//following-sibling::div")
     private WebElement bhinnekaCopyrightFooter;
 
-    @FindBy(xpath = "//span[contains(text(),'Login')]//parent::button")
+    //@FindBy(xpath = "//span[contains(text(),'Login')]//parent::button")
+    //this element for check if the test failed
+    @FindBy(xpath = "//span[contains(text(),'Login')]//parent::div")
     private WebElement loginButton;
 
     public boolean defaultHomePageIsDisplayed() {
