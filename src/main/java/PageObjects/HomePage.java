@@ -41,4 +41,26 @@ public class HomePage {
         loginButton.isEnabled();
         loginButton.click();
     }
+
+    public void clickCartButton() {
+
+        cartButton.isEnabled();
+        cartButton.click();
+    }
+
+    public void setSearchInput(String product) {
+
+        searchInput.isEnabled();
+        searchInput.click();
+        searchInput.sendKeys(product);
+    }
+
+    @FindBy(xpath = "//div[contains(@placeholder,'Cari produk asli')]//div//a")
+    private WebElement searchProductLink;
+
+    public String getSearchProductLink() {
+
+        searchProductLink.isDisplayed();
+        return searchProductLink.getText();
+    }
 }

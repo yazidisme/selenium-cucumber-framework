@@ -43,6 +43,12 @@
             <version>4.4.3</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>6.10.4</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
