@@ -13,13 +13,13 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class DriverManager {
+public class AllDriverManager {
 
     private WebDriver webDriver;
     private static DriverType driverType;
     private static EnvironmentType environmentType;
 
-    public DriverManager() {
+    public AllDriverManager() {
         driverType = FileReaderManager.getInstance().getConfigFileReader().getBrowser();
         environmentType = FileReaderManager.getInstance().getConfigFileReader().getEnvironment();
     }

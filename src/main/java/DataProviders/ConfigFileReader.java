@@ -11,12 +11,12 @@ import java.util.Properties;
 
 public class ConfigFileReader {
 
-    private Properties properties;
-    private final String propertyFilePath = "config/configuration.properties";
+    private final Properties properties;
 
     public ConfigFileReader() {
         BufferedReader bufferedReader;
         FileReader fileReader;
+        String propertyFilePath = "config/configuration.properties";
         try {
             fileReader = new FileReader(propertyFilePath);
             bufferedReader = new BufferedReader(fileReader);

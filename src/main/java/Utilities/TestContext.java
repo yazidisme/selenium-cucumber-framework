@@ -1,19 +1,19 @@
 package Utilities;
 
-import Managers.DriverManager;
+import Managers.AllDriverManager;
 import Managers.PageObjectManager;
 
 public class TestContext {
 
-    private DriverManager driverManager;
-    private PageObjectManager pageObjectManager;
+    private final AllDriverManager driverManager;
+    private final PageObjectManager pageObjectManager;
 
     public TestContext() {
-        driverManager = new DriverManager();
+        driverManager = new AllDriverManager();
         pageObjectManager = new PageObjectManager(driverManager.getDriver());
     }
 
-    public DriverManager getDriverManager() {
+    public AllDriverManager getDriverManager() {
         return driverManager;
     }
 
