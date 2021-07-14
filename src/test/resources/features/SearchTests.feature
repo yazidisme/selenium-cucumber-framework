@@ -3,7 +3,7 @@ Feature: Search product tests
 
   Background: Home page of bhinneka.com
 
-  @PositiveCase @Development @Staging @new
+  @PositiveCase @Development @Staging @ScenarioOutline
   Scenario Outline: View search suggestion link without authorizations
     Given Home page without authorizations
     When Input data with "<Brand>" in search bar
