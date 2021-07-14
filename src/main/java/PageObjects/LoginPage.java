@@ -55,4 +55,17 @@ public class LoginPage {
         registerQuestionText.isDisplayed();
         return registerQuestionText.getText();
     }
+
+    public void fillEmailData(String email) {
+
+        emailField.isEnabled();
+        emailField.clear();
+        emailField.sendKeys(email);
+    }
+
+    public void clickSelanjutnyaButton() {
+
+        selanjutnyaButton.isEnabled();
+        selanjutnyaButton.click();
+    }
 }

@@ -23,9 +23,7 @@ public class HomePage {
     @FindBy(xpath = "//img[contains(@src,'bhinneka-logo')]//parent::a//following-sibling::div")
     private WebElement bhinnekaCopyrightFooter;
 
-    //@FindBy(xpath = "//span[contains(text(),'Login')]//parent::button")
-    //this element for check if the test failed
-    @FindBy(xpath = "//span[contains(text(),'Login')]//parent::div")
+    @FindBy(xpath = "//span[contains(text(),'Login')]//parent::button")
     private WebElement loginButton;
 
     public boolean defaultHomePageIsDisplayed() {
@@ -64,5 +62,13 @@ public class HomePage {
 
         searchProductLink.isDisplayed();
         return searchProductLink.getText();
+    }
+
+    @FindBy(xpath = "//*[invalid locators]")
+    private WebElement invalidLocators;
+
+    public void getInvalidLocators() {
+
+        invalidLocators.isDisplayed();
     }
 }

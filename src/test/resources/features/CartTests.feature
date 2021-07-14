@@ -3,7 +3,8 @@ Feature: Cart tests
 
   Background: Home page of bhinneka.com
 
-  @PositiveCase @Development @Staging @new
+  @PositiveCase @Development @Staging @Failed
   Scenario: Login after access cart without authorizations
     Given Home page without authorizations
     When Go to cart page without authorizations
+    And This is for invalid locators

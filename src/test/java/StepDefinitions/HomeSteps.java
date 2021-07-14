@@ -3,6 +3,7 @@ package StepDefinitions;
 import PageObjects.HomePage;
 import Utilities.TestContext;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import org.testng.Assert;
 
 public class HomeSteps {
@@ -26,5 +27,10 @@ public class HomeSteps {
 
         Assert.assertTrue(homePage.defaultHomePageIsDisplayed());
         homePage.clickLoginButton();
+    }
+
+    @Then("This is for invalid locators")
+    public void thisIsForInvalidLocators() {
+        homePage.getInvalidLocators();
     }
 }
