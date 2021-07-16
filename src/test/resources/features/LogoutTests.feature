@@ -3,7 +3,7 @@ Feature: Logout tests
 
   Background: Home page of bhinneka.com
 
-  @PositiveCase @Development @Staging @ScenarioOutline
+  @ScenarioOutline
   Scenario Outline: Logout from home Bhinneka
     When Input "<email>" as email, "Yourp@ssw0rd" as password, "<accountType>" as account type
     Then Home page without authorizations
