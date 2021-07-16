@@ -53,7 +53,8 @@ public class SearchSteps {
         for (int i = 0; i < totalProduct; i++) {
             String actualProductTitle = productListPage.getAllProductTitle(i).toLowerCase();
 
-            Assert.assertTrue(actualProductTitle.contains(expectedProductName));
+            Assert.assertTrue(testContext.scenarioContext.isContains(Context.EXPECTED_DATA)); //Context assertion
+            Assert.assertTrue(actualProductTitle.contains(expectedProductName)); //Common assertion
         }
     }
 }
