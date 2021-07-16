@@ -1,7 +1,7 @@
-package StepDefinitions;
+package stepdefinitions;
 
-import PageObjects.LoginPage;
-import Utilities.TestContext;
+import pageobjects.LoginPage;
+import utilities.TestContext;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -22,10 +22,11 @@ public class LoginSteps {
 
     @Then("Login page is displayed")
     public void loginPageIsDisplayed() {
-
         Assert.assertTrue(loginPage.emailLoginPageIsDisplayed());
+
         String actualLoginHeaderTitle = loginPage.getLoginHeaderTitle();
         Assert.assertEquals("Silakan masuk ke akun Anda", actualLoginHeaderTitle);
+
         String actualRegisterQuestionText = loginPage.getQuestionRegisterText();
         Assert.assertEquals("Belum punya akun Bhinneka? Daftar", actualRegisterQuestionText);
     }
@@ -41,6 +42,7 @@ public class LoginSteps {
     public void inputCredentialsToLoginWithoutHeaders(DataTable dataTable) {
         List<String> dataRow = dataTable.row(0);
         String email = dataRow.get(0);
+
         System.out.println("row index 0 --- " + email);
         loginPage.fillEmailData(email);
         System.out.println("row index 1 --- " + dataRow.get(1));
@@ -50,6 +52,7 @@ public class LoginSteps {
     @When("Input credentials to login with headers table")
     public void inputCredentialsToLoginWithHeadersTable(DataTable dataTable) {
         List<Map<String,String>> dataRow = dataTable.asMaps(String.class,String.class);
+
         //Use for...loop if you have multiple data table
         for (Map<String, String> dataMap : dataRow) {
             String email = dataMap.get("Email");
@@ -58,7 +61,6 @@ public class LoginSteps {
             System.out.println("row index 1 --- " + dataMap.get("Password"));
             System.out.println("row index 2 --- " + dataMap.get("Account Type"));
         }
-
     }
 
     @When("Click selanjutnya button")

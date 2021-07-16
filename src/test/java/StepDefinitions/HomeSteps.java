@@ -1,7 +1,7 @@
-package StepDefinitions;
+package stepdefinitions;
 
-import PageObjects.HomePage;
-import Utilities.TestContext;
+import pageobjects.HomePage;
+import utilities.TestContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.testng.Assert;
@@ -18,13 +18,11 @@ public class HomeSteps {
 
     @Given("Home page without authorizations")
     public void homePageWithoutAuthorizations() {
-
         Assert.assertTrue(homePage.defaultHomePageIsDisplayed());
     }
 
     @Given("Login form in login page")
     public void goToLoginPage() {
-
         Assert.assertTrue(homePage.defaultHomePageIsDisplayed());
         homePage.clickLoginButton();
     }

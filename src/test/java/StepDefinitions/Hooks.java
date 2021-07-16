@@ -1,7 +1,7 @@
-package StepDefinitions;
+package stepdefinitions;
 
-import Managers.FileReaderManager;
-import Utilities.TestContext;
+import managers.FileReaderManager;
+import utilities.TestContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -21,7 +21,6 @@ public class Hooks {
 
     @Before
     public void setUp() {
-
         webDriver = testContext.getDriverManager().getDriver();
         webDriver.get(FileReaderManager.getInstance().getConfigFileReader().getUrl());
     }
