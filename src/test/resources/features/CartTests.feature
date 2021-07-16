@@ -3,7 +3,7 @@ Feature: Cart tests
 
   Background: Home page of bhinneka.com
 
-  @PositiveCase @Development @Staging @Failed
+  @Failed
   Scenario: Login after access cart without authorizations
     Given Home page without authorizations
     When Go to cart page without authorizations

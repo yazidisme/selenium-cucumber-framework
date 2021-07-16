@@ -1,5 +1,6 @@
 package pageobjects;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -64,5 +65,11 @@ public class HomePage {
 
     public void getInvalidLocators() {
         invalidLocators.isDisplayed();
+    }
+
+    public void searchProductData(String product) {
+
+        setSearchInput(product);
+        searchInput.sendKeys(Keys.ENTER);
     }
 }

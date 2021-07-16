@@ -3,7 +3,7 @@ Feature: Search product tests
 
   Background: Home page of bhinneka.com
 
-  @PositiveCase @Development @Staging @ScenarioOutline
+  @ScenarioOutline
   Scenario Outline: View search suggestion link without authorizations
     Given Home page without authorizations
     When Input data with "<Brand>" in search bar
@@ -12,3 +12,9 @@ Feature: Search product tests
       | Brand   |
       | samsung |
       | apple   |
+
+  @SharingDataValidation
+  Scenario: Search product with product list result validation
+    Given Home page without authorizations
+    When Search product with "Macbook" keyword
+    Then Product list is displayed

@@ -4,7 +4,7 @@ Feature: Login tests
   Background: Home page of bhinneka.com
     Given Login form in login page
 
-  @PositiveCase @Staging @Development @DataTableHeaders
+  @DataTableHeaders
   Scenario: Login to Bhinneka.com using valid account that registered in personal and corporate account type
     Given Login page is displayed
     When Input credentials to login with headers table
@@ -12,7 +12,7 @@ Feature: Login tests
     | your@email.com    | Yourp@ssw0rd | personal and corporate |
     And Click selanjutnya button
 
-  @PositiveCase @Staging @Development @SimplyDataTable
+  @SimplyDataTable
   Scenario: Login to Bhinneka.com using valid account that registered in personal account type
     Given Login page is displayed
     When Input credentials to login without headers
