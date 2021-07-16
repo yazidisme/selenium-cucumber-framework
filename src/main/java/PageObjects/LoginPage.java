@@ -1,4 +1,4 @@
-package PageObjects;
+package pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -33,7 +33,6 @@ public class LoginPage {
     private WebElement registerLink;
 
     public boolean emailLoginPageIsDisplayed() {
-
         loginHeaderTitle.isDisplayed();
         emailField.isDisplayed();
         selanjutnyaButton.isDisplayed();
@@ -45,26 +44,22 @@ public class LoginPage {
     }
 
     public String getLoginHeaderTitle() {
-
         loginHeaderTitle.isDisplayed();
         return loginHeaderTitle.getText();
     }
 
     public String getQuestionRegisterText() {
-
         registerQuestionText.isDisplayed();
         return registerQuestionText.getText();
     }
 
     public void fillEmailData(String email) {
-
         emailField.isEnabled();
         emailField.clear();
         emailField.sendKeys(email);
     }
 
     public void clickSelanjutnyaButton() {
-
         selanjutnyaButton.isEnabled();
         selanjutnyaButton.click();
     }

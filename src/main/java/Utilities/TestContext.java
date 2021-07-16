@@ -1,7 +1,7 @@
-package Utilities;
+package utilities;
 
-import Managers.AllDriverManager;
-import Managers.PageObjectManager;
+import managers.AllDriverManager;
+import managers.PageObjectManager;
 
 public class TestContext {
 

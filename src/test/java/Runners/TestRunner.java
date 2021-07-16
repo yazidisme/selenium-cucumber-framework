@@ -1,4 +1,4 @@
-package Runners;
+package runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -8,7 +8,7 @@ import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = "StepDefinitions",
+        glue = "stepdefinitions",
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",
@@ -26,13 +26,11 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 
     @BeforeSuite
     public void beforeSuite() {
-
         System.out.println("================ BEFORE SUITE ================");
     }
 
     @AfterSuite
     public void afterSuite() {
-
         System.out.println("================ AFTER SUITE ================");
     }
 }

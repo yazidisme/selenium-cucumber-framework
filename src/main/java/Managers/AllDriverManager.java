@@ -1,7 +1,7 @@
-package Managers;
+package managers;
 
-import Enums.DriverType;
-import Enums.EnvironmentType;
+import enums.DriverType;
+import enums.EnvironmentType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -47,6 +47,7 @@ public class AllDriverManager {
                 break;
         }
         long time = FileReaderManager.getInstance().getConfigFileReader().getTime();
+
         webDriver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
         webDriver.manage().timeouts().pageLoadTimeout(time, TimeUnit.SECONDS);
         webDriver.manage().timeouts().setScriptTimeout(time, TimeUnit.SECONDS);

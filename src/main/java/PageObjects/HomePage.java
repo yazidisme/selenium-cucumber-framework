@@ -1,4 +1,4 @@
-package PageObjects;
+package pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,8 +26,13 @@ public class HomePage {
     @FindBy(xpath = "//span[contains(text(),'Login')]//parent::button")
     private WebElement loginButton;
 
-    public boolean defaultHomePageIsDisplayed() {
+    @FindBy(xpath = "//div[contains(@placeholder,'Cari produk asli')]//div//a")
+    private WebElement searchProductLink;
 
+    @FindBy(xpath = "//*[invalid locators]")
+    private WebElement invalidLocators;
+
+    public boolean defaultHomePageIsDisplayed() {
         headerLogoButton.isDisplayed();
         searchInput.isDisplayed();
         cartButton.isDisplayed();
@@ -36,39 +41,28 @@ public class HomePage {
     }
 
     public void clickLoginButton() {
-
         loginButton.isDisplayed();
         loginButton.isEnabled();
         loginButton.click();
     }
 
     public void clickCartButton() {
-
         cartButton.isEnabled();
         cartButton.click();
     }
 
     public void setSearchInput(String product) {
-
         searchInput.isEnabled();
         searchInput.click();
         searchInput.sendKeys(product);
     }
 
-    @FindBy(xpath = "//div[contains(@placeholder,'Cari produk asli')]//div//a")
-    private WebElement searchProductLink;
-
     public String getSearchProductLink() {
-
         searchProductLink.isDisplayed();
         return searchProductLink.getText();
     }
 
-    @FindBy(xpath = "//*[invalid locators]")
-    private WebElement invalidLocators;
-
     public void getInvalidLocators() {
-
         invalidLocators.isDisplayed();
     }
 }

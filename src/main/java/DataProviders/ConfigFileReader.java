@@ -1,7 +1,7 @@
-package DataProviders;
+package dataproviders;
 
-import Enums.DriverType;
-import Enums.EnvironmentType;
+import enums.DriverType;
+import enums.EnvironmentType;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -17,10 +17,12 @@ public class ConfigFileReader {
         BufferedReader bufferedReader;
         FileReader fileReader;
         String propertyFilePath = "config/configuration.properties";
+
         try {
             fileReader = new FileReader(propertyFilePath);
             bufferedReader = new BufferedReader(fileReader);
             properties = new Properties();
+
             try {
                 properties.load(bufferedReader);
                 bufferedReader.close();
@@ -35,13 +37,16 @@ public class ConfigFileReader {
 
     public String getUrl() {
         String url = properties.getProperty("url");
+
         //Simply If...Else
         if (url != null) return url;
-        else throw new RuntimeException("url not specified in the config file.");
+        else
+            throw new RuntimeException("url not specified in the config file.");
     }
 
     public long getTime() {
         String timeout = properties.getProperty("timeout");
+
         //Common If...Else
         if (timeout != null) {
             return Long.parseLong(timeout);
@@ -52,6 +57,7 @@ public class ConfigFileReader {
 
     public DriverType getBrowser()  {
         String browserName = properties.getProperty("browser");
+
         switch (browserName) {
             case "chrome":
                 return DriverType.CHROME;
@@ -68,6 +74,7 @@ public class ConfigFileReader {
 
     public EnvironmentType getEnvironment() {
         String environmentName = properties.getProperty("environment");
+
         switch (environmentName) {
             case "local":
                 return EnvironmentType.LOCAL;

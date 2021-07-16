@@ -1,8 +1,8 @@
-package StepDefinitions;
+package stepdefinitions;
 
-import PageObjects.HomePage;
-import PageObjects.LoginPage;
-import Utilities.TestContext;
+import pageobjects.HomePage;
+import pageobjects.LoginPage;
+import utilities.TestContext;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
