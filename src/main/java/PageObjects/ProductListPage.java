@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import utilities.Wait;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class ProductListPage {
 
     public ProductListPage(WebDriver webDriver) {
         this.webDriver = webDriver;
-        PageFactory.initElements(webDriver, this);
+        PageFactory.initElements(new AjaxElementLocatorFactory(webDriver, 25), this);
     }
 
     @FindBy(xpath = "//div[@class = 'Toastify']//following-sibling::div//h1[not(contains(text(),'Halo'))]")
@@ -54,6 +55,7 @@ public class ProductListPage {
     }
 
     public String getAllProductTitle(int index) {
+        Wait.untilListElementIsVisible(webDriver, allProductTitle, 8L);
         allProductTitle.get(index).isDisplayed();
         return allProductTitle.get(index).getText();
     }
