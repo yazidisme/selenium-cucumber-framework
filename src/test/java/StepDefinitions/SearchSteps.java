@@ -57,4 +57,10 @@ public class SearchSteps {
             Assert.assertTrue(actualProductTitle.contains(expectedProductName)); //Common assertion
         }
     }
+
+    @When("Select product in {int} list")
+    public void selectProductInList(int list) {
+        Assert.assertTrue(productListPage.searchResultPageIsDisplayed());
+        productListPage.selectProductInList(list);
+    }
 }
