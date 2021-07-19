@@ -1,0 +1,22 @@
+{
+  "name": "name",
+  "username": "username",
+  "email": "user@e.mail",
+  "address": {
+    "street": "street",
+    "suite": "suite",
+    "city": "city",
+    "zipcode": "123",
+    "geo": {
+      "lat": "-123",
+      "lng": "456"
+    }
+  },
+  "phone": "123456789",
+  "website": "web.site",
+  "company": {
+    "name": "name",
+    "catchPhrase": "description",
+    "bs": "tagline"
+  }
+}
