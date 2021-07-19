@@ -86,6 +86,7 @@ public class ProductDetailPage {
     }
 
     public boolean nonFisikProductDetailDataIsDisplayed() {
+        Wait.untilElementIsVisible(webDriver, starProductDetail, 8L);
         stokProductDetail.isDisplayed();
         return true;
     }

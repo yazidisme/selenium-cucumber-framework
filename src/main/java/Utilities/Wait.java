@@ -2,14 +2,19 @@ package utilities;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
 import java.util.function.Function;
 
 public class Wait {
 
+    private static WebDriverWait webDriverWait;
+
     private static void until(WebDriver webDriver, Long timeOutInSeconds, Function<WebDriver, Boolean> waitCondition) {
-        WebDriverWait webDriverWait = new WebDriverWait(webDriver, timeOutInSeconds);
+        webDriverWait = new WebDriverWait(webDriver, timeOutInSeconds);
         try {
             webDriverWait.until(waitCondition);
         } catch (Exception e) {
@@ -35,5 +40,15 @@ public class Wait {
                 return false;
             }
         });
+    }
+
+    public static void untilElementIsVisible(WebDriver webDriver, WebElement webElement, Long timeOutInSeconds) {
+        webDriverWait = new WebDriverWait(webDriver, timeOutInSeconds);
+        webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
+    }
+
+    public static void untilListElementIsVisible(WebDriver webDriver, List<WebElement> webElements, Long timeOutInSeconds) {
+        webDriverWait = new WebDriverWait(webDriver, timeOutInSeconds);
+        webDriverWait.until(ExpectedConditions.visibilityOfAllElements(webElements));
     }
 }
