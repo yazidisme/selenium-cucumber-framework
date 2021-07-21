@@ -11,10 +11,8 @@ import java.util.function.Function;
 
 public class Wait {
 
-    private static WebDriverWait webDriverWait;
-
     private static void until(WebDriver webDriver, Long timeOutInSeconds, Function<WebDriver, Boolean> waitCondition) {
-        webDriverWait = new WebDriverWait(webDriver, timeOutInSeconds);
+        WebDriverWait webDriverWait = new WebDriverWait(webDriver, timeOutInSeconds);
         try {
             webDriverWait.until(waitCondition);
         } catch (Exception e) {
@@ -43,12 +41,10 @@ public class Wait {
     }
 
     public static void untilElementIsVisible(WebDriver webDriver, WebElement webElement, Long timeOutInSeconds) {
-        webDriverWait = new WebDriverWait(webDriver, timeOutInSeconds);
-        webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
+        new WebDriverWait(webDriver, timeOutInSeconds).until(ExpectedConditions.visibilityOf(webElement));
     }
 
     public static void untilListElementIsVisible(WebDriver webDriver, List<WebElement> webElements, Long timeOutInSeconds) {
-        webDriverWait = new WebDriverWait(webDriver, timeOutInSeconds);
-        webDriverWait.until(ExpectedConditions.visibilityOfAllElements(webElements));
+        new WebDriverWait(webDriver, timeOutInSeconds).until(ExpectedConditions.visibilityOfAllElements(webElements));
     }
 }
