@@ -53,3 +53,4 @@ cucumber.publish.enabled=true
 * https://www.selenium.dev/documentation/en/
 * https://www.toolsqa.com/cucumber-automation-framework/
 * https://www.w3schools.com/java/
+* https://www.oracle.com/java/technologies/javase/codeconventions-introduction.html
