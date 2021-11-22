@@ -3,6 +3,7 @@ package managers;
 import pageobjects.HomePage;
 import pageobjects.LoginPage;
 import org.openqa.selenium.WebDriver;
+import pageobjects.ProductDetailPage;
 import pageobjects.ProductListPage;
 
 public class PageObjectManager {
@@ -11,6 +12,7 @@ public class PageObjectManager {
     private HomePage homePage;
     private LoginPage loginPage;
     private ProductListPage productListPage;
+    private ProductDetailPage productDetailPage;
 
     public PageObjectManager(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -32,5 +34,10 @@ public class PageObjectManager {
 
     public ProductListPage getProductListPage() {
         return (productListPage == null) ? productListPage = new ProductListPage(webDriver) : productListPage;
+    }
+
+    public ProductDetailPage getProductDetailPage() {
+        if (productDetailPage == null) productDetailPage = new ProductDetailPage(webDriver);
+        return productDetailPage;
     }
 }
