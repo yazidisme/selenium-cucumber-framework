@@ -84,4 +84,11 @@ public class ConfigFileReader {
                 throw new RuntimeException("Environment type key value in configuration file is not matched: " + environmentName);
         }
     }
+
+    public String getTestDataResources() {
+        String path = properties.getProperty("testFileResources");
+
+        if (path != null) return path;
+        else throw new RuntimeException("testFileResources not specified in the config file.");
+    }
 }
