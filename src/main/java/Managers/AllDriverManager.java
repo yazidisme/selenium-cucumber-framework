@@ -1,7 +1,7 @@
-package managers;
+package Managers;
 
-import enums.DriverType;
-import enums.EnvironmentType;
+import Enums.DriverType;
+import Enums.EnvironmentType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

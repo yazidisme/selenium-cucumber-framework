@@ -1,4 +1,4 @@
-package enums;
+package Enums;
 
 public enum EnvironmentType {
     LOCAL,

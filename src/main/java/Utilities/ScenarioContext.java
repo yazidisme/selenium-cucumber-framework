@@ -1,6 +1,6 @@
-package utilities;
+package Utilities;
 
-import enums.Context;
+import Enums.Context;
 
 import java.util.HashMap;
 import java.util.Map;

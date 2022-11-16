@@ -1,7 +1,7 @@
-package stepdefinitions;
+package StepDefinitions;
 
-import pageobjects.HomePage;
-import utilities.TestContext;
+import PageObjects.HomePage;
+import Utilities.TestContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.testng.Assert;

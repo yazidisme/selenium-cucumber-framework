@@ -1,10 +1,10 @@
-package stepdefinitions;
+package StepDefinitions;
 
-import enums.Context;
+import Enums.Context;
 import io.cucumber.java.en.Then;
 import org.testng.Assert;
-import pageobjects.ProductDetailPage;
-import utilities.TestContext;
+import PageObjects.ProductDetailPage;
+import Utilities.TestContext;
 
 public class ProductDetailSteps {
 

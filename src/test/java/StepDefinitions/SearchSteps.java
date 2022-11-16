@@ -1,9 +1,9 @@
-package stepdefinitions;
+package StepDefinitions;
 
-import enums.Context;
-import pageobjects.HomePage;
-import pageobjects.ProductListPage;
-import utilities.TestContext;
+import Enums.Context;
+import PageObjects.HomePage;
+import PageObjects.ProductListPage;
+import Utilities.TestContext;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;

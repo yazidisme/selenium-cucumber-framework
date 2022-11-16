@@ -1,7 +1,7 @@
-package stepdefinitions;
+package StepDefinitions;
 
-import managers.FileReaderManager;
-import utilities.TestContext;
+import Managers.FileReaderManager;
+import Utilities.TestContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
